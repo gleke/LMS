@@ -31,7 +31,7 @@ public:
         delete[](ratios_forward_ptr);
     }
 
-    void generateNPValue(Adaptive_Filter_In<T> *lms_in, Adaptive_Filter_Out<T>* lms_out){       //预测下一时刻噪声信号值
+    void generateNPValue(Adaptive_Filter_In<T> *lms_in, Adaptive_Filter_Out<T>* lms_out){       //噪声信号值估计
         //获得瞬时误差估计   e(k) = d(k) - x'(k)w(k)
         static T correction = 0;
         lms_out->y = row_vector_mutiply(lms_in->x_ptr,ratios_ptr,norder);
